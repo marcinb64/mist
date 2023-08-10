@@ -1,0 +1,15 @@
+* Version 0.1
+  - [X] 2D Point
+  - [X] 2D Matrix
+  - [X] math utilities
+  - [X] Perlin noise
+  - [X] Observable
+  
+* Notes
+** Noise class performance
+   double vs float, different ways of passing noise to OctaveNoise
+   v0.1 benchmark, 2048 x 2048, Perlin -> 2 Octaves:
+   - Template<float>:   1900ms
+   - Template<double>:  1900ms
+   - std::function:     2300ms
+   - virtual:           1900ms
