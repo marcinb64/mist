@@ -18,6 +18,5 @@ A collection of utilities for C++ game dev.
 
     mkdir -p build
     conan install --build=missing --output-folder=build conanfile.txt -s build_type=Debug
-    source build/conanbuild.sh
-    cmake -B build --toolchain build/conan_toolchain.cmake 
+    cmake --preset conan-debug
     cmake --build build

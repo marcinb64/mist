@@ -7,7 +7,6 @@ project(
     LANGUAGES CXX)
 
 # Build customization
-set(CMAKE_BUILD_TYPE Debug)
 option(WARNINGS_AS_ERRORS "Treat compiler warnings as errors" On)
 option(ENABLE_CLANG_TIDY "Run clang-tidy during build" Off)
 option(ENABLE_SANITIZERS "Enable sanitizers" On)
@@ -28,10 +27,6 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 include(CTest)
 include(StaticAnalysis.cmake)
-
-# Path to conan-installed libraries
-#list(APPEND CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR}/conan)
-#list(APPEND CMAKE_PREFIX_PATH ${CMAKE_BINARY_DIR}/conan)
 
 #
 # Project structure
