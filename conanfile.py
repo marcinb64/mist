@@ -4,7 +4,7 @@ from conan.tools.cmake import CMakeToolchain, CMake, cmake_layout
 
 class HelloConan(ConanFile):
     name = "mist"
-    version = "0.1.7"
+    version = "0.1.8"
 
     # Optional metadata
     license = "MIT"

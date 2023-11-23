@@ -11,6 +11,8 @@ namespace mist
 template <typename T> class Matrix
 {
 public:
+    using Size = Point2i;
+    
     Matrix(int xSize_, int ySize_)
         : xSize(xSize_), ySize(ySize_), data(static_cast<size_t>(xSize_ * ySize_))
     {

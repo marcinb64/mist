@@ -32,8 +32,6 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 include(CTest)
 
-#
 # Project structure
-#
 add_subdirectory(mist)
 add_subdirectory(app)

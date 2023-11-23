@@ -6,29 +6,6 @@
 
 using namespace mist;
 
-TEST_CASE("Point2i", "[utils]")
-{
-    const Point2i p0;
-    const Point2i p5 {5, 55};
-    const Point2i pc(p5);
-
-    CHECK((p0.x == 0 && p0.y == 0));
-    CHECK((p5.x == 5 && p5.y == 55));
-    CHECK((pc.x == 5 && pc.y == 55));
-}
-
-TEST_CASE("Point comparison", "[utils]")
-{
-    CHECK(Point2i {3, 10} < Point2i {9, 0});
-    CHECK(Point2i {3, 10} < Point2i {3, 11});
-
-    CHECK(Point2i {9, 0} > Point2i {3, 10});
-    CHECK(Point2i {3, 11} > Point2i {3, 10});
-
-    CHECK(Point2i {3, 11} == Point2i {3, 11});
-    CHECK(Point2i {3, 11} != Point2i {4, 11});
-}
-
 TEST_CASE("Matrix accessors", "[utils]")
 {
     Matrix<int> m(5, 10);
@@ -108,9 +85,4 @@ TEST_CASE("Matrix min/max", "[utils]")
     const Matrix<int> &cm = m;
     CHECK(min(cm) == -5);
     CHECK(max(cm) == 88);
-}
-
-
-TEST_CASE("Linear transform", "[utils]")
-{
 }

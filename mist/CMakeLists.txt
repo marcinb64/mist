@@ -26,8 +26,10 @@ if (BUILD_TESTING)
     find_package(Catch2 REQUIRED)
 
     add_executable(utest_${MODULE_ID} 
-        test/utest_basic.cpp
-        test/utest_observable.cpp)
+        test/utest_Matrix.cpp
+        test/utest_observable.cpp
+        test/utest_Point.cpp
+        test/utest_moremath.cpp)
 
     target_link_libraries(utest_${MODULE_ID}
         PRIVATE
