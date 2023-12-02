@@ -7,17 +7,18 @@
 namespace mist
 {
 
-template <typename T> T lerp(T t, T a, T b)
+template <typename T> constexpr T lerp(T t, T a, T b)
 {
     return a + t * (b - a);
 }
 
-template <typename T> int roundi(T x)
+template <typename T> constexpr int roundi(T x)
 {
     return static_cast<int>(std::round(x));
 }
 
-template <typename T> auto clamp(const T &value, const T &lowerBound, const T &upperBound) -> T
+template <typename T>
+constexpr auto clamp(const T &value, const T &lowerBound, const T &upperBound) -> T
 {
     return std::min(upperBound, std::max(lowerBound, value));
 }
@@ -25,13 +26,15 @@ template <typename T> auto clamp(const T &value, const T &lowerBound, const T &u
 template <typename T = double> class LinearTransform
 {
 public:
-    static LinearTransform identity() { return LinearTransform {}; };
+    static constexpr LinearTransform identity() { return LinearTransform {}; };
 
-    LinearTransform() = default;
+    constexpr LinearTransform() = default;
 
-    LinearTransform(T x0_, T x1, T y0_, T y1) : x0(x0_), y0(y0_), a((y1 - y0) / (x1 - x0)) {}
+    constexpr LinearTransform(T x0_, T x1, T y0_, T y1) : x0(x0_), y0(y0_), a((y1 - y0) / (x1 - x0))
+    {
+    }
 
-    T operator()(T x) const { return y0 + (x - x0) * a; }
+    constexpr T operator()(T x) const { return y0 + (x - x0) * a; }
 
 private:
     T x0 {};
@@ -41,17 +44,19 @@ private:
 
 template <typename T = double> struct LinearTransform2 {
 
-    static LinearTransform2 identity() { return LinearTransform2 {}; };
+    static constexpr LinearTransform2 identity() { return LinearTransform2 {}; };
 
-    LinearTransform2() = default;
+    constexpr LinearTransform2() = default;
 
-    LinearTransform2(const Point2<T> a0, const Point2<T> a1, const Point2<T> b0, const Point2<T> b1)
+    constexpr LinearTransform2(const Point2<T> a0, const Point2<T> a1, const Point2<T> b0,
+                               const Point2<T> b1)
         : xTransform {a0.x, a1.x, b0.x, b1.x}, yTransform {a0.y, a1.y, b0.y, b1.y}
     {
     }
 
-    Point2<T> operator()(const Point2<T> p) { return {xTransform(p.x), yTransform(p.y)}; }
+    constexpr Point2<T> operator()(const Point2<T> p) { return {xTransform(p.x), yTransform(p.y)}; }
 
+private:
     mist::LinearTransform<T> xTransform {0, 1, 0, 1};
     mist::LinearTransform<T> yTransform {0, 1, 0, 1};
 };

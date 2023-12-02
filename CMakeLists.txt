@@ -23,7 +23,6 @@ add_sanitizers(project_options)
 
 # Pseudo-library for adding compiler warning flags to targets
 add_library(project_warnings INTERFACE)
-include(CompilerWarnings.cmake)
 set_project_warnings(project_warnings)
 
 # Misc options

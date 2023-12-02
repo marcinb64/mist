@@ -9,13 +9,13 @@ using namespace Catch::Matchers;
 
 TEST_CASE("Linear transform - identity")
 {
-    auto identity = LinearTransform<double>::identity();
+    constexpr auto identity = LinearTransform<double>::identity();
     CHECK_THAT(identity(3.456), WithinAbs(3.456, 0.001));
 }
 
 TEST_CASE("Linear transform")
 {
-    auto tr = LinearTransform<double>(-1.0, 1.0, 10.0, 20.0);
+    constexpr auto tr = LinearTransform<double>(-1.0, 1.0, 10.0, 20.0);
     CHECK_THAT(tr(-1.0), WithinAbs(10.0, 0.001));
     CHECK_THAT(tr(-0.5), WithinAbs(12.5, 0.001));
     CHECK_THAT(tr(0), WithinAbs(15.0, 0.001));
